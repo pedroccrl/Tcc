@@ -45,6 +45,7 @@ namespace Tcc.MySQL.Model
                 bairro.Id = Convert.ToInt32(reader["id_bairro"]);
                 bairro.IdCidade = Convert.ToInt32(reader["id_cidade"]);
                 bairro.Nome = reader["nome"].ToString();
+                bairro.NomeAlternativo = reader["nome_alternativo"].ToString();
                 bairros.Add(bairro);
             }
             Conexao.Connection.Close();
@@ -64,6 +65,7 @@ namespace Tcc.MySQL.Model
                 bairro.Id = Convert.ToInt32(reader["id_bairro"]);
                 bairro.IdCidade = Convert.ToInt32(reader["id_cidade"]);
                 bairro.Nome = reader["nome"].ToString();
+                bairro.NomeAlternativo = reader["nome_alternativo"].ToString();
                 bairros.Add(bairro);
             }
             Conexao.Connection.Close();
@@ -83,6 +85,7 @@ namespace Tcc.MySQL.Model
                 bairro.Id = Convert.ToInt32(reader["id_bairro"]);
                 bairro.IdCidade = Convert.ToInt32(reader["id_cidade"]);
                 bairro.Nome = reader["nome"].ToString();
+                bairro.NomeAlternativo = reader["nome_alternativo"].ToString();
                 bairros.Add(bairro);
             }
             Conexao.Connection.Close();

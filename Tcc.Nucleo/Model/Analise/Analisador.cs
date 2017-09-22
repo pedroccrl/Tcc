@@ -10,7 +10,7 @@ namespace Tcc.Nucleo.Model.Analise
 {
     public class Analisador
     {
-        static string tipo_locais = "rua,ruas,bairro,logradouro,avenida,travessa,rodovia,praça,alameda,beco,travessa,estrada,cidade,orla";
+        static string tipo_locais = "rua,ruas,bairro,logradouro,avenida,travessa,rodovia,praça,alameda,beco,travessa,estrada,orla";
 
         public static Token GetToken(string texto, string comparar, TipoToken tokenEsperado)
         {

@@ -9,7 +9,6 @@ using Tcc.Nucleo.Model.Crawler;
 using System.Diagnostics;
 using Tcc.Comando.Model;
 using Tcc.Nucleo.Model.Analise;
-
 namespace Tcc.Comando
 {
     class Program
@@ -29,8 +28,9 @@ namespace Tcc.Comando
                 Console.WriteLine("====================================");
                 Console.WriteLine("F8 - Procurar locais em posts");
                 Console.WriteLine("F9 - Procurar locais em comentarios");
-                Console.WriteLine("F10 - Tokenize bairro x post");
+                Console.WriteLine("F12 - Tokenize bairro x post");
                 Console.WriteLine("====================================");
+                Console.WriteLine("Espaço - Novo Menu");
                 Console.WriteLine("\n\nESC - SAIR");
                 var key = Console.ReadKey();
                 switch (key.Key)
@@ -64,14 +64,19 @@ namespace Tcc.Comando
                         Analisador.ContaLocalNoPost(posts, new Status());
                         break;
                     case ConsoleKey.F9:
-                        var comentarios = ComentarioFacebookDAO.BuscarTodosComentarios();
-                        Analisador.ContaLocalNosComentarios(comentarios, new Status());
+                        //List<Nucleo.Model.Facebook.Comment> comentarios = ComentarioFacebookDAO.BuscarTodosComentarios();
+                        //Analisador.ContaLocalNosComentarios(comentarios, new Status());
                         break;
                     case ConsoleKey.F12:
-                        Analise.AnalisarLogradourosEmPosts();
+                        Model.Analise.AnalisarLogradourosEmPosts();
                         break;
                     case ConsoleKey.Escape:
                         loop = false;
+                        break;
+                    case ConsoleKey.Spacebar:
+                        //var cidade = "rio das ostras";
+                        //Analise.EntidadeRelacionada.ReconhecerEntididadesRelacionadas(cidade);
+                        MenuSettings.Menu();
                         break;
                     default:
                         break;
@@ -79,6 +84,7 @@ namespace Tcc.Comando
 
             }
         }
+
 
         static void BuscarLogradouros()
         {

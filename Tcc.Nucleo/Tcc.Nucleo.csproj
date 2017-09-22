@@ -36,6 +36,11 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Model\Analise\Analisador.cs" />
+    <Compile Include="Model\Analise\Arvore.cs" />
+    <Compile Include="Model\Analise\Entidade.cs" />
+    <Compile Include="Model\Analise\Filtro.cs" />
+    <Compile Include="Model\Analise\Formatacao.cs" />
+    <Compile Include="Model\Analise\Relacao.cs" />
     <Compile Include="Model\Analise\Token.cs" />
     <Compile Include="Model\Bairro.cs" />
     <Compile Include="Model\Cidade.cs" />

@@ -26,6 +26,8 @@ namespace Tcc.Nucleo.Model.Facebook
         public string message { get; set; }
         public int like_count { get; set; }
         public Comments comments { get; set; }
+
+
     }
 
     public class Comments

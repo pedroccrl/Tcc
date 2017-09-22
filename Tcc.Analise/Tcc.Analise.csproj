@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9B4642DF-8DE3-4976-A746-A78735B4F9C1}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{189CF0F1-5F55-49DF-A44B-3AB469B9CF33}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tcc.Comando</RootNamespace>
-    <AssemblyName>Tcc.Comando</AssemblyName>
+    <RootNamespace>Tcc.Analise</RootNamespace>
+    <AssemblyName>Tcc.Analise</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -32,10 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,33 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MenuSettings.cs" />
-    <Compile Include="Model\Analise.cs" />
-    <Compile Include="Model\Arquivo.cs" />
-    <Compile Include="Model\Facebook.cs" />
-    <Compile Include="Model\Status.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="EntidadeRelacionada.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Tcc.Analise\Tcc.Analise.csproj">
-      <Project>{189cf0f1-5f55-49df-a44b-3ab469b9cf33}</Project>
-      <Name>Tcc.Analise</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Tcc.MongoConector\Tcc.MongoConector.csproj">
-      <Project>{ec437398-4996-41a3-9045-63c64b0df652}</Project>
-      <Name>Tcc.MongoConector</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Tcc.MySQL\Tcc.MySQL.csproj">
       <Project>{84bfd88b-f759-4256-b149-9b3eb73f0d61}</Project>
       <Name>Tcc.MySQL</Name>
     </ProjectReference>
     <ProjectReference Include="..\Tcc.Nucleo\Tcc.Nucleo.csproj">
-      <Project>{A8EA64CD-5E36-46E9-8B69-A2AA7EA4D0D9}</Project>
+      <Project>{a8ea64cd-5e36-46e9-8b69-a2aa7ea4d0d9}</Project>
       <Name>Tcc.Nucleo</Name>
     </ProjectReference>
   </ItemGroup>

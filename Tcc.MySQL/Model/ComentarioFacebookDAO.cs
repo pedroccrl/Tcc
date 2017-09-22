@@ -5,11 +5,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Tcc.Nucleo.Model.Facebook;
-
+using Newtonsoft.Json;
+using MongoDB.Driver;
 namespace Tcc.MySQL.Model
 {
     public class ComentarioFacebookDAO : Comment
     {
+        [JsonProperty("id_comentario")]
+        public long IdComentario { get; set; }
+        [JsonProperty("id_comentario_respondido")]
+        public long? IdRespondido { get; set; }
+        [JsonProperty("id_cidade")]
+        public long IdCidade { get; set; }
+        [JsonProperty("id_pagina")]
+        public long IdPagina { get; set; }
+        [JsonProperty("id_post")]
+        public long IdPost { get; set; }
+
         public static long AdicionarComentario(Comment comentario, long idPost, long idPagina, long idCidade, long idComentarioRespondido = -1)
         {
             string query = "";
@@ -38,17 +50,30 @@ namespace Tcc.MySQL.Model
             }
         }
 
-        public static List<Comment> BuscarTodosComentarios()
+        public static List<ComentarioFacebookDAO> BuscarTodosComentarios()
         {
             var query = "SELECT * FROM comentario";
             var cmd = new MySqlCommand(query, Conexao.Connection);
             var reader = cmd.ExecuteReader();
-            var comentarios = new List<Comment>();
+            var comentarios = new List<ComentarioFacebookDAO>();
             while (reader.Read())
             {
-                var c = new Comment
+                var c = new ComentarioFacebookDAO
                 {
                     message = reader["mensagem"].ToString(),
+                    IdCidade = long.Parse(reader["id_cidade"].ToString()),
+                    IdPagina = long.Parse(reader["id_pagina"].ToString()),
+                    IdPost = long.Parse(reader["id_post"].ToString()),
+                    //IdRespondido = long.Parse(reader["id_comentario_respondido"].ToString()),
+                    IdComentario = long.Parse(reader["id_comentario"].ToString()),
+                    id = reader["id_redesocial"].ToString(),
+                    created_time = reader["data"].ToString(),
+                    like_count = int.Parse(reader["like_count"].ToString()),
+                    from = new From
+                    {
+                        id = reader["id_autor"].ToString(),
+                        name = reader["nome_autor"].ToString()
+                    }
                 };
                 comentarios.Add(c);
             }
