@@ -11,7 +11,7 @@ def freq_palavras():
             for sent in pos_tag:
                 c = sent[0]
                 tag = sent[1]
-                if tag in 'N' or tag in 'NPROP' or tag in 'ADJ':
+                if tag in 'NPROP':
                     palavras.append(c)
     freq = nltk.FreqDist(palavras)
     print(freq.most_common(50))

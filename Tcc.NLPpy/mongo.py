@@ -21,3 +21,4 @@ def comentarios_tagged():
 
 def adicionar_postag(comm_postagged):
     comentarios_postag_coll.insert_one(comm_postagged)
+
