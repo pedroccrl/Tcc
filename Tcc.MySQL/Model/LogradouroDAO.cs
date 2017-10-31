@@ -55,5 +55,32 @@ namespace Tcc.MySQL.Model
             Conexao.Connection.Close();
             return logradouros;
         }
+
+        public static List<LogradouroDoc> BuscarTodosLogradourosDoc(string cidade)
+        {
+            var logradouros = new List<LogradouroDoc>();
+            var query = "SELECT l.cep, l.nome, b.nome, b.nome_alternativo, c.nome, l.id_logradouro, l.id_bairro, l.id_cidade from logradouro as l, bairro as b, cidade as c where l.id_bairro=b.id_bairro and b.id_cidade=c.id_cidade and c.nome = @ID_CIDADE";
+            var cmd = new MySqlCommand(query, Conexao.Connection);
+            cmd.Parameters.AddWithValue("@ID_CIDADE", cidade);
+            var reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                var logradouro = new LogradouroDoc();
+                logradouro.Id = Convert.ToInt32(reader[5]);
+                logradouro.IdCidade = Convert.ToInt32(reader[7]);
+                logradouro.IdBairro = Convert.ToInt32(reader[6]);
+                logradouro.Nome = reader[1].ToString();
+                logradouro.Cep = reader[0].ToString();
+                logradouro.Bairro = new BairroDoc
+                {
+                    Cidade = reader[4].ToString(),
+                    Nome = reader[2].ToString(),
+                    NomeAlternativo = reader[3].ToString()
+                };
+                logradouros.Add(logradouro);
+            }
+            Conexao.Connection.Close();
+            return logradouros;
+        }
     }
 }

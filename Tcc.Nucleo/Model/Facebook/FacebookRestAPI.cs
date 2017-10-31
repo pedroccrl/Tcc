@@ -21,7 +21,14 @@ namespace Tcc.Nucleo.Model.Facebook
             return page;
         }
 
-        public static async Task<Posts> ObterPostsPagina(string idPagina, string since = "0", int limit = 100)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPagina"></param>
+        /// <param name="since">Tem que estar no padrão dd/MM/yyyy</param>
+        /// <param name="limit"></param>
+        /// <returns></returns>
+        public static async Task<Posts> ObterPostsPaginaAsync(string idPagina, string since = "0", int limit = 100)
         {
             var url = $"{GraphUrl}{idPagina}/posts?fields=message,id,created_time,link&limit={limit}&access_token={AccessToken}";
             if (since != "0" || !string.IsNullOrWhiteSpace(since))
@@ -36,9 +43,23 @@ namespace Tcc.Nucleo.Model.Facebook
             return posts;
         }
 
-        public static async Task<List<Comment>> ObterComentariosPost (string idPost, int limit = 100)
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPost"></param>
+        /// <param name="since">Tem que estar no padrão dd/MM/yyyy</param>
+        /// <param name="limit"></param>
+        /// <returns></returns>
+        public static async Task<List<Comment>> ObterComentariosPostAsync (string idPost, string since = "0", int limit = 100)
         {
             var url = $"{GraphUrl}{idPost}?fields=comments.limit({limit}){"{id,created_time,from,message,like_count,comments.limit(100){id,created_time,from,message,like_count}}"}&access_token={AccessToken}";
+            if (since != "0" || !string.IsNullOrWhiteSpace(since))
+            {
+                var data = (DateTime.ParseExact(since, "dd/MM/yyyy", null) - new DateTime(1970, 01, 01));
+                var timespan = new TimeSpan(data.Ticks);
+                url += $"&since={timespan.TotalSeconds}";
+            }
             var comments = await GetObjectAsync<PostComments>(url);
             var next = comments?.comments?.paging?.next;
             var comentarios = new List<Comment>();

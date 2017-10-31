@@ -1,0 +1,15 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<app asp-prerender-module="ClientApp/dist/main-server">Loading...</app>
+
+<script src="~/dist/vendor.js" asp-append-version="true"></script>
+@section scripts {
+    <script src="~/dist/main-client.js" asp-append-version="true"></script>
+    
+<script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDERd7y7_S4PFWtxntd3YOtBHq1jOB_pM0&callback=initMap">
+</script>
+
+}

@@ -11,5 +11,7 @@ namespace Tcc.Nucleo.Model
         public string Nome { get; set; }
         public string NomeAlternativo { get; set; }
         public List<Logradouro> Logradouros { get; set; }
+
     }
+
 }

@@ -50,6 +50,7 @@
     <Compile Include="Model\Analise.cs" />
     <Compile Include="Model\Arquivo.cs" />
     <Compile Include="Model\Facebook.cs" />
+    <Compile Include="Model\Servico.cs" />
     <Compile Include="Model\Status.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -69,7 +69,9 @@
     <Compile Include="Model\ComentarioFacebookDAO.cs" />
     <Compile Include="Model\Conexao.cs" />
     <Compile Include="Model\LogradouroDAO.cs" />
+    <Compile Include="Model\LogradouroDoc.cs" />
     <Compile Include="Model\PaginaFacebookDAO.cs" />
+    <Compile Include="Model\PalavraDAO.cs" />
     <Compile Include="Model\PostFacebookDAO.cs" />
     <Compile Include="Model\RelacaoDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

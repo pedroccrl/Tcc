@@ -1,0 +1,15 @@
+﻿<h1>{{ title }}</h1>
+
+<!-- this creates a google map on the page with the given lat/lng from -->
+<!-- the component as the initial center of the map: -->
+
+<agm-map [latitude]="lat" [longitude]="lng">
+    <agm-circle *ngFor="let m of ruas"
+                [fillColor]="'red'"
+                [radius]="50"
+                [latitude]="m.latitude" [longitude]="m.longitude">
+        <agm-info-window>
+            <strong>olá {{m.label}}</strong>
+        </agm-info-window>
+    </agm-circle>
+</agm-map>

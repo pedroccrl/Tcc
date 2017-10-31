@@ -62,6 +62,35 @@ namespace Tcc.MySQL.Model
             return cidade;
         }
 
+        public static List<CidadeDAO> BuscarCidades()
+        {
+            
+            var query = "SELECT * FROM cidade";
+            var cmd = new MySqlCommand(query, Conexao.Connection);
+            var reader = cmd.ExecuteReader();
+            var list = new List<CidadeDAO>();
+            while (reader.Read())
+            {
+                var cidade = new CidadeDAO();
+                cidade.Nome = reader["nome"].ToString();
+                cidade.UF = reader["estado"].ToString();
+                cidade.Id = Convert.ToInt32(reader["id_cidade"]);
+                list.Add(cidade);
+            }
+            Conexao.Connection.Close();
+            return list;
+        }
+
+        public static async Task<List<CidadeDAO>> BuscarCidadesAsync()
+        {
+            var cidades = default(List<CidadeDAO>);
+            await Task.Run(() =>
+            {
+                cidades = BuscarCidades();
+            });
+            return cidades;
+        }
+
         public static CidadeDAO BuscarCidadeSemLogradouro(string nome)
         {
             var cidade = new CidadeDAO();

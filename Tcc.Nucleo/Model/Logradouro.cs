@@ -14,8 +14,8 @@ namespace Tcc.Nucleo.Model
         const string NAO_RECONHECER = "/N.A.O_D.E.V.E_S.E.R_U.S.A.D.O./";
         public string Nome { get; set; }
         public string Cep { get; set; }
-        public string Latitude { get; set; }
-        public string Longitude { get; set; }
+        public double? Latitude { get; set; }
+        public double? Longitude { get; set; }
 
         /// <summary>
         /// Rua, travessa, praça, avenida, etc...

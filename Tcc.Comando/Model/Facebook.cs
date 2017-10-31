@@ -31,7 +31,7 @@ namespace Tcc.Comando.Model
                 var postlist = new List<Post>();
                 WriteLine($"Procurando posts em {page.name} desde {data}...");
                 WriteLine("Aguarde...");
-                posts = await FacebookRestAPI.ObterPostsPagina(page.id, data);
+                posts = await FacebookRestAPI.ObterPostsPaginaAsync(page.id, data);
                 postlist.AddRange(posts.data);
                 SetCursorPosition(0, CursorTop - 1);
                 WriteLine($"{postlist.Count} posts encontrados. Aguarde...");
@@ -126,7 +126,7 @@ namespace Tcc.Comando.Model
             {
                 double totalPorc = (total / posts.Count) * 100;
 
-                var comentarios = await FacebookRestAPI.ObterComentariosPost(post.id);
+                var comentarios = await FacebookRestAPI.ObterComentariosPostAsync(post.id);
                 comentariosCount += comentarios.Count;
                 
                 SetCursorPosition(0, CursorTop - 1);

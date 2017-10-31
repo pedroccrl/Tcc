@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button Content="Acessar Cidades" Click="Button_Click"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Acessar Cidades" Click="Button_Click" Margin="6"/>
+        <Button Grid.Column="1" Content="Iniciar Serviço" Click="Button_Click_1" Margin="6"/>
     </Grid>
 </Window>

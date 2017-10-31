@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Tcc.Gerenciamento.View;
 
 namespace Tcc.Gerenciamento
 {
@@ -29,6 +30,12 @@ namespace Tcc.Gerenciamento
         {
             var cidadesPage = new CidadesWindow();
             cidadesPage.Show();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            var servicoWin = new ServicoWindow();
+            servicoWin.Show();
         }
     }
 }

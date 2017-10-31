@@ -74,5 +74,15 @@ namespace Tcc.MySQL.Model
             }
             return paginas;
         }
+
+        public static async Task<List<PaginaFacebookDAO>> ObterPaginasCidadeAsync(string cidade)
+        {
+            var paginas = default(List<PaginaFacebookDAO>);
+            await Task.Run(() =>
+            {
+                paginas = ObterPaginasCidade(cidade);
+            });
+            return paginas;
+        }
     }
 }
