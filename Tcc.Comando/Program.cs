@@ -15,7 +15,7 @@ namespace Tcc.Comando
     {
         static void Main(string[] args)
         {
-            args = new string[] { "servico"};
+            //args = new string[] { "servico"};
             if (args.Length > 0)
             {
                 switch (args[0])

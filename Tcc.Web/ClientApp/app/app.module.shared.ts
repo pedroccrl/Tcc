@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { MapaComponent } from './components/mapa/mapa.component'
+import { CidadeComponent } from './components/cidade/cidade.component'
 
 import { AgmCoreModule } from '@agm/core';
 
@@ -20,7 +21,8 @@ import { AgmCoreModule } from '@agm/core';
         CounterComponent,
         FetchDataComponent,
         HomeComponent,
-        MapaComponent
+        MapaComponent,
+        CidadeComponent
     ],
     imports: [
         CommonModule,
@@ -31,6 +33,7 @@ import { AgmCoreModule } from '@agm/core';
         }),
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
+            {path: 'cidade', component: CidadeComponent},
             { path: 'home', component: HomeComponent },
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
