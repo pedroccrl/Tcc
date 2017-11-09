@@ -72,6 +72,7 @@ namespace Tcc.MySQL.Model
                 page.IdCidade = Convert.ToInt32(reader["id_cidade"]);
                 paginas.Add(page);
             }
+            Conexao.Connection.Close();
             return paginas;
         }
 

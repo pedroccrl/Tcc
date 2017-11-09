@@ -5,32 +5,44 @@
     }
 </style>
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-lg-3">
         <div class="panel panel-default">
             <div class="panel-thumbnail"><img class="img-responsive" src="../img/ro.jpg"></div>
             <div class="panel-body">
-                <p class="lead">{{cidade}}</p>
+                <p class="lead">{{cidade.cidade}}</p>
                 <div class="list-group">
                     <button type="button" class="list-group-item">
-                        <span class="badge">14</span>
-                        Cras justo odio
+                        <span class="badge">{{cidade.bairros}}</span>
+                        Bairros
                     </button>
-                    <button type="button" class="list-group-item">Dapibus ac facilisis in</button>
-                    <button type="button" class="list-group-item">Morbi leo risus</button>
-                    <button type="button" class="list-group-item">Porta ac consectetur ac</button>
-                    <button type="button" class="list-group-item">Vestibulum at eros</button>
+                    <button type="button" class="list-group-item">
+                        <span class="badge">{{cidade.logradouros}}</span>
+                        Logradouros
+                    </button>
+                    <button type="button" class="list-group-item">
+                        <span class="badge">{{cidade.paginas}}</span>
+                        Paginas
+                    </button>
+                    <button type="button" class="list-group-item">
+                        <span class="badge">{{cidade.posts}}</span>
+                        Posts
+                    </button>
+                    <button type="button" class="list-group-item">
+                        <span class="badge">{{cidade.comentarios}}</span>
+                        Comentarios
+                    </button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-lg-6">
         <div class="panel panel-default">
             <div class="panel-body">
                 
             </div>
         </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-lg-3">
         <div class="panel panel-default">
             <div class="panel-body">
 

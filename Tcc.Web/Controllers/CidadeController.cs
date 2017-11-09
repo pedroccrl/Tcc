@@ -24,9 +24,22 @@ namespace Tcc.Web.Controllers
         public object Get(string nome)
         {
             var cidade = CidadeDAO.BuscarCidade(nome);
+            var pags = PaginaFacebookDAO.ObterPaginasCidade(cidade.Nome);
+            var comentarios = ComentarioFacebookDAO.BuscarTodosComentariosDaCidade(cidade);
+            var posts = 0;
+            var logradouros = LogradouroDAO.BuscarTodosLogradouros(nome);
+            foreach (var item in pags)
+            {
+                posts += PostFacebookDAO.BuscarPostsPagina(item.Id).Count;
+            }
             var c = new
             {
-                Name = ""
+                cidade = cidade.Nome.ToUpper(),
+                bairros = cidade.BairrosDAO.Count,
+                paginas = pags.Count,
+                comentarios = comentarios.Count,
+                posts = posts,
+                logradouros = logradouros.Count
             };
             return c;
         }

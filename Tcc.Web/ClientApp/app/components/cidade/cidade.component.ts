@@ -1,4 +1,4 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit, Inject } from '@angular/core';
 import { Http } from '@angular/http';
 import { ActivatedRoute } from '@angular/router';
 
@@ -9,11 +9,16 @@ import { ActivatedRoute } from '@angular/router';
 /** cidade component*/
 export class CidadeComponent implements OnInit
 {
-    public cidade: string;
+    public cidade: any;
     /** cidade ctor */
-    constructor(http: Http, route: ActivatedRoute) {
-        route.queryParams.subscribe(
-            params => this.cidade = params['cidade'].toUpperCase());
+    constructor(http: Http, route: ActivatedRoute, @Inject('BASE_URL') baseUrl: string) {
+        var nome: string;
+        route.queryParams.subscribe(params => {
+            nome = params['cidade'];
+            http.get(baseUrl + 'api/Cidade/' + nome).subscribe(result => {
+                this.cidade = result.json();
+            }, error => console.error(error));
+        });
     }
 
     /** Called by Angular after cidade component initialized */
