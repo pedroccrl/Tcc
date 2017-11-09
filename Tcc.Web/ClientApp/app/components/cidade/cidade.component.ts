@@ -13,7 +13,7 @@ export class CidadeComponent implements OnInit
     /** cidade ctor */
     constructor(http: Http, route: ActivatedRoute) {
         route.queryParams.subscribe(
-            params => this.cidade = params['cidade']);
+            params => this.cidade = params['cidade'].toUpperCase());
     }
 
     /** Called by Angular after cidade component initialized */

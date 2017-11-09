@@ -118,7 +118,7 @@ namespace Tcc.MongoConector
         {
             var mongo = new MongoClient("mongodb://localhost:27017");
             var database = mongo.GetDatabase("dados_tcc");
-            var col = database.GetCollection<MySQL.Model.BairroDAO>("bairro");
+            var col = database.GetCollection<MySQL.Model.BairroDAO>("bairros");
             col.InsertMany(bairros);
         }
 

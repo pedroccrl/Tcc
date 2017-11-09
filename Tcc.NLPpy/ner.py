@@ -37,12 +37,15 @@ def NomearLocalidades(comentarios):
         p = re.compile(r'\s*')
         msg = p.sub(' ', msg)
         msg = RemovedorDeAcentos.remover_acentos(msg)
+
+        sentencas = sent_tokenizer.tokenize(msg)
+
         for r in logradouros.find():
             
             rua = r['Nome']
-            p = re.compile(r'-.*', re.IGNORECASE)
+            p = re.compile(r'-.*', re.IGNORECASE) # retira algo depois do nome
             rua = p.sub('', rua)
-            p = re.compile(r'\s*')
+            p = re.compile(r'\s*') # transforma espaços em 1 caracter
             rua = p.sub(' ', rua)
             rua = RemovedorDeAcentos.remover_acentos(rua)
             

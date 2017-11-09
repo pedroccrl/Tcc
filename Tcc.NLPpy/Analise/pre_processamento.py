@@ -25,26 +25,33 @@ abreviacao = [
     (' ta ', ' está '),
     (' ta ', ' está '),
     ('tmj', 'estamos juntos'),
-    (' tbm ', ' também ')
+    (' tbm ', ' também '),
+    (' ja ', ' já ')
 ]
 
 def CorrigirComentario(comentario):
-    msg = comentario['message']
+    comentario['corrigido'] = CorrigirTexto(comentario['message'])
+    return comentario
 
+def to_lower(match):
+    return match.group(0).lower()
+
+def CorrigirTexto(texto):
     p = re.compile(r'http://|www\S*', re.IGNORECASE) # retirar links
-    msg = p.sub('', msg)
+    texto = p.sub('', texto)
     p = re.compile(r'(\w)\1{2,}', re.IGNORECASE) # retirar mais que 2 letras repetidas
-    msg = p.sub(r'\1', msg)
+    texto = p.sub(r'\1', texto)
     p = re.compile(r'([!.?])\1{1,}', re.IGNORECASE) # retirar mais que 1 ponto repetido e adicionar um espaço após
-    msg = p.sub(r'\1 ', msg) 
+    texto = p.sub(r'\1 ', texto) 
     p = re.compile(r' ([!?.])') # retirar um espaço antes de pontuação
-    msg = p.sub(r'\1', msg)
+    texto = p.sub(r'\1', texto)
     p = re.compile(r'(\w)(ao)\s', re.IGNORECASE) # colocar ~ numa palavra terminada em ao
-    msg = p.sub(r'\1ão ', msg)
+    texto = p.sub(r'\1ão ', texto)
+    texto = re.sub(r'[A-Z]{2,}|[a-z][A-Z]+', to_lower, texto) # substitui mais uma palavra maiscula para minuscula
 
     for (abr, s_abr) in abreviacao:
         p = re.compile(abr, re.IGNORECASE)
-        msg = p.sub(s_abr, msg)
+        texto = p.sub(s_abr, texto)
+    return texto
 
-    comentario['corrigido'] = msg
-    return comentario
+#CorrigirTexto('Oi como vc VAI RiO DaS OsTrAs')

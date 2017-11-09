@@ -11,6 +11,7 @@
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.0" />
     <PackageReference Include="MongoDB.Driver" Version="2.4.4" />
+    <PackageReference Include="MySql.Data" Version="6.10.4" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,9 +32,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\app\components\home\home.component.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Tcc.MongoConector\Tcc.MongoConector.csproj" />
     <ProjectReference Include="..\Tcc.MySQL\Tcc.MySQL.csproj" />
     <ProjectReference Include="..\Tcc.Nucleo\Tcc.Nucleo.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\app\components\home\home.component.ts" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
@@ -65,5 +74,7 @@
       </ResolvedFileToPublish>
     </ItemGroup>
   </Target>
+
+  <ProjectExtensions><VisualStudio><UserProperties Properties_4launchSettings_1json__JSONSchema="" /></VisualStudio></ProjectExtensions>
 
 </Project>
