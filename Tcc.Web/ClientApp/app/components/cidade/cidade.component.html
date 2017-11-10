@@ -44,8 +44,29 @@
     </div>
     <div class="col-lg-3">
         <div class="panel panel-default">
-            <div class="panel-body">
-
+            <div class="panel-heading">
+                <h3 class="panel-title">Principais Assuntos</h3>
+            </div>
+            <div class="panel-body" style="height: 350px; overflow-y: scroll;">
+                <div class="list-group">
+                    <a href="#" class="list-group-item" *ngFor="let assunto of assuntos.temas">
+                        <span class="label label-primary">{{assunto.key}}</span>
+                        <small>mencionado <strong>{{assunto.value}}</strong> vezes</small>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Principais Sentimentos</h3>
+            </div>
+            <div class="panel-body" style="height: 300px; overflow-y: scroll;">
+                <div class="list-group">
+                    <a href="#" class="list-group-item" *ngFor="let assunto of assuntos.qualidades">
+                        <span class="label label-primary">{{assunto.key}}</span>
+                        <small>mencionado <strong>{{assunto.value}}</strong> vezes</small>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

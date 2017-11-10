@@ -48,7 +48,11 @@ namespace Tcc.MySQL.Model
         {
             var cidade = new CidadeDAO();
             var query = "SELECT * FROM cidade WHERE nome = @Nome";
-            var cmd = new MySqlCommand(query, Conexao.Connection);
+
+            var conn = new MySqlConnection(Conexao.ConnString);
+            conn.Open();
+
+            var cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@Nome", nome.Trim().ToLower());
             var reader = cmd.ExecuteReader();
             while (reader.Read())
@@ -57,7 +61,7 @@ namespace Tcc.MySQL.Model
                 cidade.UF = reader["estado"].ToString();
                 cidade.Id = Convert.ToInt32(reader["id_cidade"]);
             }
-            Conexao.Connection.Close();
+            conn.Close();
             cidade.BairrosDAO = BairroDAO.BuscarTodosBairros(cidade);
             return cidade;
         }

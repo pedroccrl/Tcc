@@ -28,9 +28,8 @@ def verificar_texto(texto):
         tagged = tagger.tag(palavras) # classifica as palavras em POS-Tagging
         tags.append(tagged)
         chunkGram = """
-                    Sujeito: {<N.*>+<PREP.*>*<KS>*<ADJ>*<N.*>*<PREP.*>*<KS>*<ADJ>*<N.*>*}
-                    Relacao: {<V.*>*}
-                    Qualidade: {<ADJ>*}
+                    Sujeito: {<N.*>+(<PREP.*>*<KS>*<ADJ>*<N.*>+)*}
+                    Qualidade: {<V.*><ADJ>*}
                     """
         chunkParser = nltk.RegexpParser(chunkGram)
         chunked = chunkParser.parse(tagged)

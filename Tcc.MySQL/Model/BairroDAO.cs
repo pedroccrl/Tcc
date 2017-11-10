@@ -56,7 +56,10 @@ namespace Tcc.MySQL.Model
         {
             var bairros = new List<BairroDAO>();
             var query = "SELECT * FROM bairro WHERE id_cidade = @ID_CIDADE";
-            var cmd = new MySqlCommand(query, Conexao.Connection);
+            var conn = new MySqlConnection(Conexao.ConnString);
+            conn.Open();
+
+            var cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@ID_CIDADE", cidade.Id);
             var reader = cmd.ExecuteReader();
             while (reader.Read())
@@ -68,7 +71,7 @@ namespace Tcc.MySQL.Model
                 bairro.NomeAlternativo = reader["nome_alternativo"].ToString();
                 bairros.Add(bairro);
             }
-            Conexao.Connection.Close();
+            conn.Close();
             return bairros;
         }
 
