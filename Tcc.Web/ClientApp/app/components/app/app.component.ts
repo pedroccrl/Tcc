@@ -9,6 +9,6 @@ export class AppComponent {
 
     public header: string;
     constructor() {
-        this.header = "Tcc - Pedro Câmara"
+        this.header = "Tcc - Pedro Camara"
     }
 }

@@ -5,7 +5,7 @@
     }
 </style>
 <div class="row">
-    <div class="col-lg-3">
+    <div class="col-lg-2">
         <div class="panel panel-default">
             <div class="panel-thumbnail"><img class="img-responsive" src="../img/ro.jpg"></div>
             <div class="panel-body">
@@ -35,14 +35,25 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-6">
+    <div class="col-lg-8">
         <div class="panel panel-default">
             <div class="panel-body">
+                <ol class="breadcrumb">
+                    <li class="active">{{cidade.cidade}}</li>
+                </ol>
+                <bairro></bairro>
+                <div class="container-fluid">
+                    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="11">
+                        <agm-marker *ngFor="let c of geocomentarios"
+                                    [latitude]="c.logradouro[0].latitude" [longitude]="c.logradouro[0].longitude">
+                        </agm-marker>
+                    </agm-map>
+                </div>
                 
-            </div>
+            </div> 
         </div>
     </div>
-    <div class="col-lg-3">
+    <div class="col-lg-2">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">Principais Assuntos</h3>
