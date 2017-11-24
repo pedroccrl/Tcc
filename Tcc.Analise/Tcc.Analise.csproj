@@ -44,13 +44,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Tcc.MySQL\Tcc.MySQL.csproj">
-      <Project>{84bfd88b-f759-4256-b149-9b3eb73f0d61}</Project>
-      <Name>Tcc.MySQL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Tcc.Nucleo\Tcc.Nucleo.csproj">
-      <Project>{a8ea64cd-5e36-46e9-8b69-a2aa7ea4d0d9}</Project>
-      <Name>Tcc.Nucleo</Name>
+    <ProjectReference Include="..\Tcc.MySQLCore\Tcc.MySQLCore.csproj">
+      <Project>{6336ccb9-0d95-4be7-9f42-194e9b226ae9}</Project>
+      <Name>Tcc.MySQLCore</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="6.10.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Tcc.MongoConectorCore\Tcc.MongoConectorCore.csproj" />
+    <ProjectReference Include="..\Tcc.MySQLCore\Tcc.MySQLCore.csproj" />
+    <ProjectReference Include="..\Tcc.NucleoCore\Tcc.NucleoCore.csproj" />
+  </ItemGroup>
+
+</Project>

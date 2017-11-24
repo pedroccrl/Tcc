@@ -59,24 +59,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Tcc.Analise\Tcc.Analise.csproj">
-      <Project>{189cf0f1-5f55-49df-a44b-3ab469b9cf33}</Project>
-      <Name>Tcc.Analise</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Tcc.MongoConector\Tcc.MongoConector.csproj">
-      <Project>{ec437398-4996-41a3-9045-63c64b0df652}</Project>
-      <Name>Tcc.MongoConector</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Tcc.MySQL\Tcc.MySQL.csproj">
-      <Project>{84bfd88b-f759-4256-b149-9b3eb73f0d61}</Project>
-      <Name>Tcc.MySQL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Tcc.Nucleo\Tcc.Nucleo.csproj">
-      <Project>{A8EA64CD-5E36-46E9-8B69-A2AA7EA4D0D9}</Project>
-      <Name>Tcc.Nucleo</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

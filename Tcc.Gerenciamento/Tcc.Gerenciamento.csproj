@@ -118,20 +118,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Tcc.MongoConector\Tcc.MongoConector.csproj">
-      <Project>{ec437398-4996-41a3-9045-63c64b0df652}</Project>
-      <Name>Tcc.MongoConector</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Tcc.MySQL\Tcc.MySQL.csproj">
-      <Project>{84bfd88b-f759-4256-b149-9b3eb73f0d61}</Project>
-      <Name>Tcc.MySQL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Tcc.Nucleo\Tcc.Nucleo.csproj">
-      <Project>{a8ea64cd-5e36-46e9-8b69-a2aa7ea4d0d9}</Project>
-      <Name>Tcc.Nucleo</Name>
-    </ProjectReference>
-  </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

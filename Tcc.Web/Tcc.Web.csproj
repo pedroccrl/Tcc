@@ -36,9 +36,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Tcc.MongoConector\Tcc.MongoConector.csproj" />
-    <ProjectReference Include="..\Tcc.MySQL\Tcc.MySQL.csproj" />
-    <ProjectReference Include="..\Tcc.Nucleo\Tcc.Nucleo.csproj" />
+    <ProjectReference Include="..\Tcc.MongoConectorCore\Tcc.MongoConectorCore.csproj" />
+    <ProjectReference Include="..\Tcc.MySQLCore\Tcc.MySQLCore.csproj" />
   </ItemGroup>
 
   <ItemGroup>
