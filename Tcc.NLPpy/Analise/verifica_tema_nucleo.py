@@ -28,7 +28,7 @@ def verificar_texto(texto):
         tagged = tagger.tag(palavras) # classifica as palavras em POS-Tagging
         tags.append(tagged)
         chunkGram = """
-                    Sujeito: {<N.*>+(<PREP.*>*<KS>*<ADJ>*<N.*>+)*}
+                    Sujeito: {<N.*>+<PREP.*>*<KS>*<ADJ>*<N.*>+}
                     Qualidade: {<V.*><ADJ>*}
                     """
         chunkParser = nltk.RegexpParser(chunkGram)
@@ -41,6 +41,28 @@ def verificar_texto(texto):
             if subtree.label() == 'Qualidade':
                 qual = [n for (n, t) in subtree.leaves() if len(n) >= 2]
                 qualidades.append(' '.join(qual))
+        chunkGram = """
+                    Sujeito: {<NPROP*>+}
+                    """
+        chunkParser = nltk.RegexpParser(chunkGram)
+        chunked = chunkParser.parse(tagged)
+        #chunked.draw()
+        for subtree in chunked.subtrees():
+            if subtree.label() == 'Sujeito':
+                nome = [n for (n, t) in subtree.leaves() if len(n) >= 2]
+                nomejoin = ' '.join(nome)
+                if len(nomejoin)>3:
+                    nomes.append(nomejoin)
+        chunkGram = """
+                    Sujeito: {<N.*>+<ADJ>+}
+                    """
+        chunkParser = nltk.RegexpParser(chunkGram)
+        chunked = chunkParser.parse(tagged)
+        #chunked.draw()
+        for subtree in chunked.subtrees():
+            if subtree.label() == 'Sujeito':
+                nome = [n for (n, t) in subtree.leaves() if len(n) >= 2]
+                nomes.append(' '.join(nome))
     tema = {}
     tema['nomes'] = nomes
     tema['qualidades'] = qualidades

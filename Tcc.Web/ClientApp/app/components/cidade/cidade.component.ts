@@ -1,4 +1,4 @@
-﻿ import { Component, OnInit, Inject } from '@angular/core';
+﻿import { Component, OnInit, Inject } from '@angular/core';
 import { Http } from '@angular/http';
 import { ActivatedRoute } from '@angular/router';
 
@@ -19,9 +19,10 @@ export class CidadeComponent implements OnInit
     /** cidade ctor */
     constructor(http: Http, route: ActivatedRoute, @Inject('BASE_URL') baseUrl: string) {
         var nome: string;
+        
         route.queryParams.subscribe(params => {
             nome = params['cidade'];
-
+            
             http.get(baseUrl + 'api/Cidade/' + nome).subscribe(result => {
                 this.cidade = result.json() as Cidade;
             }, error => console.error(error));

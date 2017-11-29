@@ -41,13 +41,21 @@
                 <ol class="breadcrumb">
                     <li class="active">{{cidade.cidade}}</li>
                 </ol>
-                <bairro></bairro>
+                <div class="page-header">
+                    <h2>Termometro de {{cidade.cidade}} <small>O que andam falando?</small></h2>
+                </div>
                 <div class="container-fluid">
                     <agm-map [latitude]="lat" [longitude]="lng" [zoom]="11">
                         <agm-marker *ngFor="let c of geocomentarios"
                                     [latitude]="c.logradouro[0].latitude" [longitude]="c.logradouro[0].longitude">
                         </agm-marker>
                     </agm-map>
+                    <h3>
+                        Exibindo pontos no mapa de {{geocomentarios.length}} logradouros citados em comentarios.
+                    </h3>
+                    <h4>
+                        Clique nos marcadores para mais informacoes
+                    </h4>
                 </div>
                 
             </div> 

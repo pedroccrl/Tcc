@@ -34,7 +34,7 @@ namespace Tcc.Web.Controllers
             }
             var c = new
             {
-                cidade = cidade.Nome.ToUpper(),
+                cidade = FirstCharToUpper(cidade.Nome),
                 bairros = cidade.BairrosDAO.Count,
                 paginas = pags.Count,
                 comentarios = comentarios.Count,
@@ -60,6 +60,16 @@ namespace Tcc.Web.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+        }
+
+        public static string FirstCharToUpper(string input)
+        {
+            switch (input)
+            {
+                case null: throw new ArgumentNullException(nameof(input));
+                case "": throw new ArgumentException($"{nameof(input)} cannot be empty", nameof(input));
+                default: return input.First().ToString().ToUpper() + input.Substring(1);
+            }
         }
     }
 }

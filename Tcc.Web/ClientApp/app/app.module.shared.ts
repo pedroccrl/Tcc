@@ -12,6 +12,7 @@ import { CounterComponent } from './components/counter/counter.component';
 import { MapaComponent } from './components/mapa/mapa.component'
 import { CidadeComponent } from './components/cidade/cidade.component'
 import { BairroComponent } from './components/bairro/bairro.component'
+import { ComentariosComponent } from './components/comentarios/comentarios.component' 
 
 import { AgmCoreModule } from '@agm/core';
 
@@ -24,7 +25,8 @@ import { AgmCoreModule } from '@agm/core';
         HomeComponent,
         MapaComponent,
         CidadeComponent,
-        BairroComponent
+        BairroComponent,
+        ComentariosComponent
     ],
     imports: [
         CommonModule,
@@ -41,6 +43,7 @@ import { AgmCoreModule } from '@agm/core';
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'mapa', component: MapaComponent },
             { path: 'bairro', component: BairroComponent },
+            { path: 'comentarios', component: ComentariosComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]
