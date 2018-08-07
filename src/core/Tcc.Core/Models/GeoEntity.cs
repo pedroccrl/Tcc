@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Tcc.Core.Models
 {
-    public class GeoEntity : Entity
+    public abstract class GeoEntity : Entity
     {
         [JsonIgnore]
         public GeoJsonPoint<GeoJson2DCoordinates> Localization { get; set; }
