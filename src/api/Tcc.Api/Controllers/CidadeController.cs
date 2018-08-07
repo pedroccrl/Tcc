@@ -2,8 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Driver;
+using Tcc.Api.Messages.Cidades;
+using Tcc.Api.Messages.Responses;
+using Tcc.Core.Models;
 
 namespace Tcc.Api.Controllers
 {
@@ -11,10 +16,21 @@ namespace Tcc.Api.Controllers
     [ApiController]
     public class CidadeController : ControllerBase
     {
-        [HttpPost]
-        public IActionResult New()
+        IMongoCollection<Cidade> cidadeCollection;
+
+        public CidadeController()
         {
-            return null;
+            cidadeCollection = Entity.GetCollection<Cidade>();
+        }
+
+        [HttpPost]
+        public IActionResult New([FromBody] CidadePostRequest cidadePostRequest)
+        {
+            var cidade = Mapper.Map<Cidade>(cidadePostRequest);
+
+            cidadeCollection.InsertOne(cidade);
+
+            return Ok(new DataResponse("Ok"));
         }
     }
 }
