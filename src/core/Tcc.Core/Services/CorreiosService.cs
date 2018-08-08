@@ -156,7 +156,7 @@ namespace Tcc.Core.Services
 
                         }
                     }
-                    Console.WriteLine($"Aguardando 10 segundos");
+                    Console.WriteLine($"{b.Logradouros.Count} logradouros encontrados. \nAguardando 10 segundos");
                     await Task.Delay(1000 * 10);
                 }
             });
