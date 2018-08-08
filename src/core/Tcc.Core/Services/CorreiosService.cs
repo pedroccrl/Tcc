@@ -12,7 +12,7 @@ using Tcc.Core.Models;
 
 namespace Tcc.Core.Services
 {
-    public static class Correios
+    public static class CorreiosService
     {
         public static async void BuscaCepEndereço(string query)
         {
@@ -99,7 +99,7 @@ namespace Tcc.Core.Services
                     forms.Add(new KeyValuePair<string, string>("pagini", $"{i}"));
                     forms.Add(new KeyValuePair<string, string>("pagfim", $"{i + 50}"));
 
-                    //status?.Escrever($"Requisitando {bairro.Trim()}, Pagina: {i}");
+                    Console.WriteLine($"Requisitando {bairro.Trim()}, Pagina: {i}");
                     var resposta = await http.PostAsync("http://www.buscacep.correios.com.br/sistemas/buscacep/resultadoBuscaLogBairro.cfm", new FormUrlEncodedContent(forms));
 
 
@@ -156,7 +156,7 @@ namespace Tcc.Core.Services
 
                         }
                     }
-                    //status?.Escrever($"Aguardando 10 segundos");
+                    Console.WriteLine($"Aguardando 10 segundos");
                     await Task.Delay(1000 * 10);
                 }
             });

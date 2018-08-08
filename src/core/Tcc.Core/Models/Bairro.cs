@@ -14,5 +14,7 @@ namespace Tcc.Core.Models
 
         [BsonIgnore]
         public List<Logradouro> Logradouros { get; set; }
+
+        public bool Completo { get; set; }
     }
 }
