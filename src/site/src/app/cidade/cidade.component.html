@@ -1,3 +1,14 @@
+<mat-toolbar>
+    Rio das Ostras
+</mat-toolbar>
 <agm-map [latitude]="lat" [longitude]="lng">
-    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    <agm-marker [latitude]="lat" [longitude]="lng" (click)="clickMark()"></agm-marker>
 </agm-map>
+<mat-tab-group>
+    <mat-tab label="Comentários">
+        <app-cidade-comentarios></app-cidade-comentarios>
+    </mat-tab>
+    <mat-tab label="Temas">
+        <app-cidade-temas [temas]="cidade.temas"></app-cidade-temas>
+    </mat-tab>
+</mat-tab-group>

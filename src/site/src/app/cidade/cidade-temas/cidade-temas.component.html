@@ -1,3 +1,3 @@
-<p>
-  cidade-temas works!
+<p *ngFor="let tema of temas">
+    <span matBadge="{{tema[1]}}" matBadgeOverlap="false">{{tema[0]}}</span>
 </p>

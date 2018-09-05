@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatCardModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatCardModule, MatDialogModule, MatTabsModule, MatBadgeModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { ConfigService } from './services/config.service';
@@ -23,7 +23,7 @@ import { AgmCoreModule } from '@agm/core';
         CidadeComponent,
         CidadeMapaComponent,
         CidadeComentariosComponent,
-        CidadeTemasComponent
+        CidadeTemasComponent,
     ],
     imports: [
         RouterModule.forRoot(routes),
@@ -33,9 +33,12 @@ import { AgmCoreModule } from '@agm/core';
         MatCheckboxModule,
         MatToolbarModule,
         HttpClientModule,
+        MatDialogModule,
         MatCardModule,
+        MatTabsModule,
+        MatBadgeModule,
         AgmCoreModule.forRoot({
-            apiKey: 'AIzaSyDERd7y7_S4PFWtxntd3YOtBHq1jOB_pM0'
+            apiKey: 'AIzaSyCCbhq8RrDFwt8Te69l4xpiLapB2YqeSB4'
         })
     ],
     providers: [

@@ -14,4 +14,9 @@ export class CidadeService {
         const response = this.http.get<Cidade[]>(ApiUrl + 'cidade').toPromise();
         return response;
     }
+
+    async getCidade(id: number) {
+        const response = this.http.get<Cidade>(ApiUrl + 'cidade/' + id).toPromise();
+        return response;
+    }
 }

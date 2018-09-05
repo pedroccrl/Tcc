@@ -27,5 +27,13 @@ namespace Tcc.Api.Controllers
 
             return cidades;
         }
+
+        [HttpGet("{id}")]
+        public object GetCidade(int id)
+        {
+            var cidades = CidadeCollection.Find(c => c.IdCidade == id).FirstOrDefault();
+
+            return cidades;
+        }
     }
 }

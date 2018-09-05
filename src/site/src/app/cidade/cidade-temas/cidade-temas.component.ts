@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-cidade-temas',
-  templateUrl: './cidade-temas.component.html',
-  styleUrls: ['./cidade-temas.component.css']
+    selector: 'app-cidade-temas',
+    templateUrl: './cidade-temas.component.html',
+    styleUrls: ['./cidade-temas.component.css']
 })
 export class CidadeTemasComponent implements OnInit {
 
-  constructor() { }
+    @Input()
+    public temas;
 
-  ngOnInit() {
-  }
+    constructor() { }
+
+    ngOnInit() {
+    }
 
 }
