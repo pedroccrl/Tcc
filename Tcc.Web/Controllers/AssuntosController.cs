@@ -25,7 +25,7 @@ namespace Tcc.Web.Controllers
         [HttpGet("{cidade}")]
         public object Get(string cidade)
         {
-            var mongo = new MongoClient("mongodb://pedro-pc:27017");
+            var mongo = new MongoClient("mongodb://localhost:27017");
             var database = mongo.GetDatabase("dados_tcc");
 
             var cidadeDao = CidadeDAO.BuscarCidade(cidade);

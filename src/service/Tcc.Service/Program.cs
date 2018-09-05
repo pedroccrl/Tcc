@@ -25,7 +25,7 @@ namespace Tcc.Service
                 };
             }
 
-            Core.Mongo.MongoConnection.Init(mongoSettings);
+            MongoConnection.Init(mongoSettings);
 
             Tasks.PlaceFinderTask.BuscaCidadesCorreios().Wait();
         }
