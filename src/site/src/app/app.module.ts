@@ -14,6 +14,8 @@ import { CidadeMapaComponent } from './cidade/cidade-mapa/cidade-mapa.component'
 import { CidadeComentariosComponent } from './cidade/cidade-comentarios/cidade-comentarios.component';
 import { CidadeTemasComponent } from './cidade/cidade-temas/cidade-temas.component';
 
+import { AgmCoreModule } from '@agm/core';
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -31,7 +33,10 @@ import { CidadeTemasComponent } from './cidade/cidade-temas/cidade-temas.compone
         MatCheckboxModule,
         MatToolbarModule,
         HttpClientModule,
-        MatCardModule
+        MatCardModule,
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyDERd7y7_S4PFWtxntd3YOtBHq1jOB_pM0'
+        })
     ],
     providers: [
         ConfigService
