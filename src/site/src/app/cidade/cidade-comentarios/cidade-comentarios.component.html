@@ -1,3 +1,7 @@
-<p>
-  cidade-comentarios works!
-</p>
+<mat-card *ngFor="let comentario of comentarios">
+    <p>{{comentario.message}}</p>
+    <p>{{comentario.corrigido}}</p>
+    <p *ngFor="let sent of comentario.tema.pos_tags">
+        <span *ngFor="let postag of sent">[{{postag[0]}}, {{postag[1]}}]</span>
+    </p>
+</mat-card>

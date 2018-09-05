@@ -4,6 +4,8 @@ import { CidadeTemasComponent } from './cidade-temas/cidade-temas.component';
 import { ActivatedRoute } from '../../../node_modules/@angular/router';
 import { Cidade } from '../models/cidade';
 import { CidadeService } from '../services/cidade.service';
+import { ComentarioService } from '../services/comentario.service';
+import { Comentario } from '../models/comentario';
 
 export interface DialogData {
     animal: string;
@@ -21,15 +23,21 @@ export class CidadeComponent implements OnInit {
 
     cidadeId;
     public cidade: Cidade;
+    public comentarios: Comentario[];
 
     constructor(
         public dialog: MatDialog,
         private actRouter: ActivatedRoute,
-        private cidadeService: CidadeService) { }
+        private cidadeService: CidadeService,
+        private comentarioService: ComentarioService) { }
 
     async ngOnInit() {
         this.cidadeId = this.actRouter.snapshot.params.cidadeId;
         this.cidade = await this.cidadeService.getCidade(this.cidadeId);
+        this.comentarios = await this.comentarioService.getComentariosCidade(this.cidadeId);
+
+        this.lat = this.comentarios[0].logradouros[0].latitude;
+        this.lng = this.comentarios[0].logradouros[0].longitude;
     }
 
     clickMark() {

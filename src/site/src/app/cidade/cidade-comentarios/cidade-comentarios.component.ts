@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Comentario } from '../../models/comentario';
 
 @Component({
-  selector: 'app-cidade-comentarios',
-  templateUrl: './cidade-comentarios.component.html',
-  styleUrls: ['./cidade-comentarios.component.css']
+    selector: 'app-cidade-comentarios',
+    templateUrl: './cidade-comentarios.component.html',
+    styleUrls: ['./cidade-comentarios.component.css']
 })
 export class CidadeComentariosComponent implements OnInit {
 
-  constructor() { }
+    @Input()
+    public comentarios: Comentario[];
 
-  ngOnInit() {
-  }
+    constructor() { }
+
+    ngOnInit() {
+    }
 
 }

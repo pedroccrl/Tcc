@@ -1,12 +1,14 @@
 <mat-toolbar>
     Rio das Ostras
 </mat-toolbar>
-<agm-map [latitude]="lat" [longitude]="lng">
-    <agm-marker [latitude]="lat" [longitude]="lng" (click)="clickMark()"></agm-marker>
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]="7">
+    <agm-marker *ngFor="let c of comentarios" [latitude]="c.logradouros[0].latitude" [longitude]="c.logradouros[0].longitude" (click)="clickMark()">
+            <agm-info-window>{{c.message}}</agm-info-window>
+    </agm-marker>
 </agm-map>
 <mat-tab-group>
     <mat-tab label="Comentários">
-        <app-cidade-comentarios></app-cidade-comentarios>
+        <app-cidade-comentarios [comentarios]="comentarios"></app-cidade-comentarios>
     </mat-tab>
     <mat-tab label="Temas">
         <app-cidade-temas [temas]="cidade.temas"></app-cidade-temas>
