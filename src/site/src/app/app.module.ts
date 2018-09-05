@@ -9,11 +9,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '../../node_modules/@angular/router';
 import { routes } from './routes';
+import { CidadeComponent } from './cidade/cidade.component';
+import { CidadeMapaComponent } from './cidade/cidade-mapa/cidade-mapa.component';
+import { CidadeComentariosComponent } from './cidade/cidade-comentarios/cidade-comentarios.component';
+import { CidadeTemasComponent } from './cidade/cidade-temas/cidade-temas.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        HomeComponent
+        HomeComponent,
+        CidadeComponent,
+        CidadeMapaComponent,
+        CidadeComentariosComponent,
+        CidadeTemasComponent
     ],
     imports: [
         RouterModule.forRoot(routes),

@@ -1,3 +1,6 @@
+<h2>Cities</h2>
 <mat-card *ngFor="let cidade of cidades">
-    {{cidade.nome}}
+    <strong>{{cidade.nome}}</strong>
+    <br><br>
+    <button mat-raised-button color="primary" routerLink="cidade/{{cidade.idCidade}}">Details</button>
 </mat-card>
