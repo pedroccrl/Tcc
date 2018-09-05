@@ -45,9 +45,9 @@ namespace Tcc.Api.Models
         public int IdBairro { get; set; }
         public string Nome { get; set; }
         public string Cep { get; set; }
-        public float Longitude { get; set; }
+        public object Longitude { get; set; }
         public int _id { get; set; }
-        public float Latitude { get; set; }
+        public object Latitude { get; set; }
         public string Tipo { get; set; }
         public Bairro Bairro { get; set; }
         public int IdCidade { get; set; }

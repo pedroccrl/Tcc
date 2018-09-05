@@ -29,5 +29,15 @@ namespace Tcc.Api.Controllers
 
             return comentarios;
         }
+
+        [HttpGet("cidade/{id}")]
+        public object GetComentariosCidade(int id)
+        {
+            var comentarios = from coll in ComentarioCollection.AsQueryable()
+                              where coll.TemLogradouro == true && coll.Logradouros.Count() > 0 && coll.IdCidade == id
+                              select coll;
+
+            return comentarios.ToList();
+        }
     }
 }
